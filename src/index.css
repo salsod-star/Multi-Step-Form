@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  /* color: #02295a; */
+  /* color: #473dff; */
+  /* color: #adbeff; */
+  /* color: #bfe2fd; */
+
+  /* color: #9699ab; dark gray*/
+  /* color: #d6d9e6; light gray */
+  /* color: #f0f6ff; bg color */
+  /* color: #fafbff; bg color light*/
+  /* color: #ffffff; */
+}

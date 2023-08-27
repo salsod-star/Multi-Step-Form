@@ -3,7 +3,7 @@ import { FormContext } from "./FormContext";
 
 function PersonalInfo() {
   const { handleChange, formData } = useContext(FormContext);
-  console.log(formData);
+
   return (
     <>
       <h2 className="text-[#02295a] font-bold text-2xl">Personal info</h2>
@@ -22,6 +22,7 @@ function PersonalInfo() {
           value={formData.name}
           onChange={handleChange}
           placeholder="e.g. Stephen King"
+          required
           className="border py-3 px-4 outline-none font-semibold text-[#02295a] rounded-md"
         />
       </div>
@@ -53,6 +54,7 @@ function PersonalInfo() {
           value={formData.telephone}
           onChange={handleChange}
           placeholder="e.g. +123 456 789"
+          required
           className="border py-3 px-4 outline-none font-semibold text-[#02295a] rounded-md"
         />
       </div>

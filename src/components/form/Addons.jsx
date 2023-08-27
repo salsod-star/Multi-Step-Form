@@ -14,17 +14,24 @@ function Addons() {
 
       <div
         className={`flex items-center gap-4 rounded-lg border-2 py-3 px-4 cursor-pointer ${
-          formData.addons["online service"] ? "border-[#473dff]" : ""
+          formData.addons.find((el) => el.type === "online service")
+            ? "border-[#473dff]"
+            : ""
         } hover:border-[#473dff]`}
       >
         <input
+          onClick={handleChange}
           type="checkbox"
           name="addons"
           id="service"
           value="online service"
-          onClick={handleChange}
-          className="cursor-pointer"
-          required
+          className={`cursor-pointer appearance-none transition-all duration-75
+          before:w-4 before:h-4 before:rounded-[4px] before:border before:border-[#d6d9e6] before:block
+          ${
+            formData.addons.find((el) => el.type === "online service")
+              ? "before:bg-[url('./assets/images/icon-checkmark.svg')] before:bg-no-repeat before:p-2 before:bg-[4px 4px] before:bg-center before:bg-[#473dff] before:border-[#473dff]"
+              : ""
+          }`}
         />
         <label
           htmlFor="service"
@@ -37,25 +44,32 @@ function Addons() {
             </span>
           </div>
           <span className="text-[#473dff] ml-auto font-bold text-xs">
-            {formData.billing === "yearly"
-              ? "+$" + (12 - formData.promoMonths) * 1 + "/yr"
+            {formData.plan.billing === "yearly"
+              ? "+$" + (12 - formData.plan.promoMonths) * 1 + "/yr"
               : "+$1/mo"}
           </span>
         </label>
       </div>
       <div
         className={`flex items-center gap-4 rounded-lg border-2 my-3 py-3 px-4 cursor-pointer ${
-          formData.addons["larger storage"] ? "border-[#473dff]" : ""
+          formData.addons.find((el) => el.type === "larger storage")
+            ? "border-[#473dff]"
+            : ""
         } hover:border-[#473dff]`}
       >
         <input
+          onClick={handleChange}
           type="checkbox"
           name="addons"
           id="storage"
-          data="larger storage"
-          onClick={handleChange}
-          className="cursor-pointer"
-          required
+          value="larger storage"
+          className={`cursor-pointer appearance-none transition-all duration-75
+          before:w-4 before:h-4 before:rounded-[4px] before:border before:border-[#d6d9e6] before:block
+          ${
+            formData.addons.find((el) => el.type === "larger storage")
+              ? "before:bg-[url('./assets/images/icon-checkmark.svg')] before:bg-no-repeat before:p-2 before:bg-[4px 4px] before:bg-center before:bg-[#473dff] before:border-[#473dff]"
+              : ""
+          }`}
         />
         <label
           htmlFor="storage"
@@ -68,23 +82,32 @@ function Addons() {
             </span>
           </div>
           <span className="text-[#473dff] ml-auto font-bold text-xs">
-            {formData.billing === "yearly"
-              ? "+$" + (12 - formData.promoMonths) * 2 + "/yr"
+            {formData.plan.billing === "yearly"
+              ? "+$" + (12 - formData.plan.promoMonths) * 2 + "/yr"
               : "+$2/mo"}
           </span>
         </label>
       </div>
       <div
         className={`flex items-center gap-4 rounded-lg border-2 py-3 px-4 cursor-pointer ${
-          formData.addons["customizable profile"] ? "border-[#473dff]" : ""
+          formData.addons.find((el) => el.type === "customizable profile")
+            ? "border-[#473dff]"
+            : ""
         } hover:border-[#473dff]`}
       >
         <input
           type="checkbox"
           name="addons"
           id="profile"
-          className="cursor-pointer"
-          required
+          value="customizable profile"
+          onClick={handleChange}
+          className={`cursor-pointer appearance-none transition-all duration-75
+          before:w-4 before:h-4 before:rounded-[4px] before:border before:border-[#d6d9e6] before:block
+          ${
+            formData.addons.find((el) => el.type === "customizable profile")
+              ? "before:bg-[url('./assets/images/icon-checkmark.svg')] before:bg-no-repeat before:p-2 before:bg-[4px 4px] before:bg-center before:bg-[#473dff] before:border-[#473dff]"
+              : ""
+          }`}
         />
         <label
           htmlFor="profile"
@@ -99,8 +122,8 @@ function Addons() {
             </span>
           </div>
           <span className="text-[#473dff] ml-auto font-bold text-xs">
-            {formData.billing === "yearly"
-              ? "+$" + (12 - formData.promoMonths) * 2 + "/yr"
+            {formData.plan.billing === "yearly"
+              ? "+$" + (12 - formData.plan.promoMonths) * 2 + "/yr"
               : "+$2/mo"}
           </span>
         </label>

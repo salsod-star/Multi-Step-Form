@@ -6,7 +6,7 @@ import { FormContext } from "./FormContext";
 
 function PackagePlan() {
   const { formData, handleChange, handleBillingPeriod } = useContext(FormContext);
-
+  console.log(formData);
   return (
     <>
       <h2 className="text-[#02295a] font-bold text-2xl">Select your plan</h2>
@@ -17,7 +17,7 @@ function PackagePlan() {
       <div>
         <label
           className={`flex items-center gap-4 rounded-lg border-2 py-3 px-4 cursor-pointer ${
-            formData.plan === "arcade" ? "border-[#473dff]" : ""
+            formData.plan.package === "arcade" ? "border-[#473dff]" : ""
           } hover:border-[#473dff]`}
           htmlFor="arcade"
         >
@@ -25,11 +25,11 @@ function PackagePlan() {
           <div className="flex flex-col">
             <span className="text-[#02295a] font-bold text-base">Arcade</span>
             <span className="text-[#9699ab]">
-              {formData.billing === "yearly"
-                ? "$" + (12 - formData.promoMonths) * 9
+              {formData.plan.billing === "yearly"
+                ? "$" + (12 - formData.plan.promoMonths) * 9
                 : "$9/mo"}
             </span>
-            {formData.billing === "yearly" && (
+            {formData.plan.billing === "yearly" && (
               <span className="text-[#02295a] text-xs">2 months free</span>
             )}
           </div>
@@ -38,8 +38,8 @@ function PackagePlan() {
           type="radio"
           name="plan"
           id="arcade"
-          required
-          className="appearance-none"
+          // required
+          className="opacity-0"
           value="arcade"
           onChange={handleChange}
         />
@@ -48,7 +48,7 @@ function PackagePlan() {
       <div className="">
         <label
           className={`flex items-center gap-4 rounded-lg border-2 py-3 px-4 cursor-pointer ${
-            formData.plan === "advanced" ? "border-[#473dff]" : ""
+            formData.plan.package === "advanced" ? "border-[#473dff]" : ""
           } hover:border-[#473dff]`}
           htmlFor="advanced"
         >
@@ -57,11 +57,11 @@ function PackagePlan() {
           <div className="flex flex-col">
             <span className="text-[#02295a] font-bold text-base">Advanced</span>
             <span className="text-[#9699ab]">
-              {formData.billing === "yearly"
-                ? "$" + (12 - formData.promoMonths) * 12
+              {formData.plan.billing === "yearly"
+                ? "$" + (12 - formData.plan.promoMonths) * 12
                 : "$12/mo"}
             </span>
-            {formData.billing === "yearly" && (
+            {formData.plan.billing === "yearly" && (
               <span className="text-[#02295a] text-xs">2 months free</span>
             )}
           </div>
@@ -71,7 +71,7 @@ function PackagePlan() {
           name="plan"
           id="advanced"
           value="advanced"
-          required
+          // required
           className="appearance-none"
           onChange={handleChange}
         />
@@ -80,7 +80,7 @@ function PackagePlan() {
       <div>
         <label
           className={`flex items-center gap-4 rounded-lg border-2 py-3 px-4 cursor-pointer ${
-            formData.plan === "pro" ? "border-[#473dff]" : ""
+            formData.plan.package === "pro" ? "border-[#473dff]" : ""
           } hover:border-[#473dff]`}
           htmlFor="pro"
         >
@@ -89,11 +89,11 @@ function PackagePlan() {
           <div className="flex flex-col">
             <span className="text-[#02295a] font-bold text-base">Pro</span>
             <span className="text-[#9699ab]">
-              {formData.billing === "yearly"
-                ? "$" + (12 - formData.promoMonths) * 15
+              {formData.plan.billing === "yearly"
+                ? "$" + (12 - formData.plan.promoMonths) * 15
                 : "$15/mo"}
             </span>
-            {formData.billing === "yearly" && (
+            {formData.plan.billing === "yearly" && (
               <span className="text-[#02295a] text-xs">2 months free</span>
             )}
           </div>
@@ -104,7 +104,7 @@ function PackagePlan() {
           id="pro"
           value="pro"
           onChange={handleChange}
-          required
+          // required
           className="appearance-none"
         />
       </div>
@@ -112,7 +112,7 @@ function PackagePlan() {
       <div className="flex items-center justify-center gap-4 mt-6 py-3 bg-[#f0f6ff] rounded-md">
         <span
           className={`text-[#02295a] font-bold text-base cursor-pointer ${
-            formData.billing === "monthly" ? "text-[#02295a]" : "text-[#9699ab]"
+            formData.plan.billing === "monthly" ? "text-[#02295a]" : "text-[#9699ab]"
           }`}
           onClick={handleBillingPeriod}
         >
@@ -122,12 +122,12 @@ function PackagePlan() {
           className={`
         w-9 h-[19px] bg-[#02295a] rounded-3xl relative flex items-center px-1 transition
         before:w-3 before:h-3 before:bg-white before:rounded-full before:block ${
-          formData.billing === "yearly" && "before:translate-x-full"
+          formData.plan.billing === "yearly" && "before:translate-x-full"
         }`}
         ></span>
         <span
           className={` font-bold text-base cursor-pointer ${
-            formData.billing === "yearly" ? "text-[#02295a]" : "text-[#9699ab]"
+            formData.plan.billing === "yearly" ? "text-[#02295a]" : "text-[#9699ab]"
           }`}
           onClick={handleBillingPeriod}
         >

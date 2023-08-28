@@ -6,7 +6,7 @@ import { FormContext } from "./FormContext";
 
 function PackagePlan() {
   const { formData, handleChange, handleBillingPeriod } = useContext(FormContext);
-  console.log(formData);
+
   return (
     <>
       <h2 className="text-[#02295a] font-bold text-2xl">Select your plan</h2>

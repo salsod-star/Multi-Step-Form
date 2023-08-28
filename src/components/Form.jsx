@@ -14,10 +14,6 @@ function Form() {
     currentComponent,
   } = useContext(FormContext);
 
-  console.log(canSubmit, currentFormStage);
-
-  // useEffect(() => {}, [canSubmit]);
-
   return (
     <section className="h-screen flex flex-col text-base bg-[#f0f6ff]">
       <FormStage currentFormStage={currentFormStage} stagesComponent={stagesComponent} />

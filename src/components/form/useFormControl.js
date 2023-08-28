@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const INITIAL_FORM_DATA = {
   personal: {
@@ -99,7 +99,7 @@ function useFormController(...stagesComponent) {
 
   const handleNext = () => {
     setCurrentFormStage((prev) => {
-      if (prev >= stagesComponent.length - 1) {
+      if (prev >= stagesComponent.length) {
         return prev;
       }
 
@@ -117,16 +117,17 @@ function useFormController(...stagesComponent) {
     });
   };
 
+  useEffect(() => {
+    if (currentFormStage >= stagesComponent.length) {
+      setCanSubmit((prev) => (prev === false ? true : false));
+    }
+  }, [currentFormStage, stagesComponent.length]);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (currentFormStage <= stagesComponent.length) {
       handleNext();
-      setCanSubmit(false);
-      return;
     }
-
-    setCanSubmit(true);
-    console.log(canSubmit, currentFormStage);
   }
 
   function handleBillingPeriod(e) {

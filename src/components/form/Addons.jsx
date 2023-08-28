@@ -4,7 +4,6 @@ import { FormContext } from "./FormContext";
 function Addons() {
   const { formData, handleChange } = useContext(FormContext);
 
-  console.log(formData);
   return (
     <>
       <h2 className="text-[#02295a] font-bold text-2xl">Pick add-ons</h2>

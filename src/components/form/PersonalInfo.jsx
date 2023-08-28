@@ -19,7 +19,7 @@ function PersonalInfo() {
           type="text"
           name="name"
           id="name"
-          value={formData.name}
+          value={formData.personal.name}
           onChange={handleChange}
           placeholder="e.g. Stephen King"
           required
@@ -35,7 +35,7 @@ function PersonalInfo() {
           type="email"
           name="email"
           id="email"
-          value={formData.email}
+          value={formData.personal.email}
           onChange={handleChange}
           required
           placeholder="e.g. stephenking@lorem.com"
@@ -51,7 +51,7 @@ function PersonalInfo() {
           type="tel"
           name="telephone"
           id="phone"
-          value={formData.telephone}
+          value={formData.personal.telephone}
           onChange={handleChange}
           placeholder="e.g. +123 456 789"
           required
